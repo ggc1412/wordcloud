@@ -1,0 +1,10 @@
+@charset "UTF-8";
+svg {
+	background: black;
+}
+h1{
+	color: red;
+}
+h2{
+	font-weight: bold;
+}
