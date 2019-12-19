@@ -8,10 +8,7 @@
     <meta charset="utf-8" />
 </head>
 <style>
-    @font-face {
-        font-family: 'overwatch';
-        src: url('fonts/koverwatch.woff2');
-    }
+@import url('https://fonts.googleapis.com/css?family=Stylish&display=swap');
 </style>
 
 <body>
@@ -35,8 +32,8 @@
         //range: 표시할 범위, 출력 크기 
         //clamp: domain의 범위를 넘어간 값에 대하여 domain의 최대값으로 고정시킨다.
         wordScale = d3.scale.linear().domain([0, 100]).range([0, 150]).clamp(true);
-        colorScale = d3.scale.linear().domain([0, 100]).range(["#fbc280", "#405275"]).clamp(true);
-        var keywords = ["자리야", "트레이서", "한조"]
+        colorScale = d3.scale.linear().domain([0, 100]).range(["#405275", "#fbc280"]).clamp(true);
+        //var keywords = ["자리야", "트레이서", "한조"]
         var svg = d3.select("svg")
                     .append("g")
                     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
@@ -61,12 +58,12 @@
                 //Entering words
                 cloud.enter()
                     .append("text")
-                    //.style("font-family", "overwatch")
+                    .style("font-family", 'Stylish')
                     .style("fill", function (d) {
 						return colorScale(d.frequency);
                     	// return (keywords.indexOf(d.text) > -1 ? "#fbc280" : "#405275");
                     })
-                    .style("fill-opacity", 1)
+                    .style("fill-opacity", .5)
                     .attr("text-anchor", "middle") 
                     .attr('font-size', 1)
                     .text(function (d) {
@@ -82,7 +79,7 @@
                         return "translate(" + [d.x, d.y] + ")";
                         //rotate(" + d.rotate + ")";
                     })
-                    //.style("fill-opacity", 0.7); 
+                    .style("fill-opacity", .9); 
             }
         }
     </script>
